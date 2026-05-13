@@ -1,0 +1,325 @@
+@import "tailwindcss" source(none);
+@source "../src";
+@import "tw-animate-css";
+
+@import url("https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300..700;1,300..700&family=DM+Sans:opsz,wght@9..40,300..700&family=Cinzel:wght@400..700&display=swap");
+
+@custom-variant dark (&:is(.dark *));
+
+@theme inline {
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+
+  --color-bg-primary: var(--bg-primary);
+  --color-bg-secondary: var(--bg-secondary);
+  --color-bg-tertiary: var(--bg-tertiary);
+  --color-gold: var(--gold);
+  --color-gold-light: var(--gold-light);
+  --color-gold-muted: var(--gold-muted);
+  --color-text-primary: var(--text-primary);
+  --color-text-secondary: var(--text-secondary);
+  --color-text-tertiary: var(--text-tertiary);
+  --color-border-gold: var(--border-gold);
+  --color-sapphire: var(--sapphire);
+  --color-sapphire-light: var(--sapphire-light);
+  --color-sapphire-deep: var(--sapphire-deep);
+  --color-burgundy: var(--burgundy);
+  --color-violet: var(--violet);
+
+  --font-display: "Cormorant Garamond", serif;
+  --font-body: "DM Sans", sans-serif;
+  --font-accent: "Cinzel", serif;
+
+  --animate-marquee: marquee 35s linear infinite;
+  --animate-pulse-gold: pulse-gold 3s ease-in-out infinite;
+  --animate-aurora: aurora 14s ease-in-out infinite;
+  --animate-shimmer-text: shimmer-text 4s linear infinite;
+  --animate-float-slow: float-slow 9s ease-in-out infinite;
+  --animate-tilt: tilt 8s ease-in-out infinite;
+  --animate-orbit: orbit 24s linear infinite;
+
+  @keyframes marquee {
+    from {
+      transform: translateX(0);
+    }
+    to {
+      transform: translateX(-50%);
+    }
+  }
+  @keyframes pulse-gold {
+    0%,
+    100% {
+      box-shadow: 0 0 0 0 rgba(201, 168, 76, 0.4);
+    }
+    50% {
+      box-shadow: 0 0 30px 8px rgba(201, 168, 76, 0.15);
+    }
+  }
+  @keyframes aurora {
+    0%,
+    100% {
+      transform: translate3d(0, 0, 0) rotate(0deg) scale(1);
+      opacity: 0.6;
+    }
+    33% {
+      transform: translate3d(8%, -6%, 0) rotate(40deg) scale(1.15);
+      opacity: 0.85;
+    }
+    66% {
+      transform: translate3d(-6%, 8%, 0) rotate(-30deg) scale(0.95);
+      opacity: 0.7;
+    }
+  }
+  @keyframes shimmer-text {
+    0% {
+      background-position: -200% center;
+    }
+    100% {
+      background-position: 200% center;
+    }
+  }
+  @keyframes float-slow {
+    0%,
+    100% {
+      transform: translateY(0) rotate(0);
+    }
+    50% {
+      transform: translateY(-18px) rotate(2deg);
+    }
+  }
+  @keyframes tilt {
+    0%,
+    100% {
+      transform: rotate(-1deg);
+    }
+    50% {
+      transform: rotate(1deg);
+    }
+  }
+  @keyframes orbit {
+    from {
+      transform: rotate(0deg) translateX(30px) rotate(0deg);
+    }
+    to {
+      transform: rotate(360deg) translateX(30px) rotate(-360deg);
+    }
+  }
+}
+
+:root {
+  --radius: 0.25rem;
+
+  --bg-primary: #0a0c10;
+  --bg-secondary: #0f1219;
+  --bg-tertiary: #161b26;
+  --gold: #c9a84c;
+  --gold-light: #dfca8d;
+  --gold-muted: #a68a3e;
+  --text-primary: #f5f0e8;
+  --text-secondary: #a8a099;
+  --text-tertiary: #5c5650;
+  --border-gold: rgba(201, 168, 76, 0.25);
+  --sapphire: #2b4c8c;
+  --sapphire-light: #5b7dbf;
+  --sapphire-deep: #1a2e54;
+  --burgundy: #8c2b32;
+  --violet: #c9a84c;
+
+  --background: #0a0c10;
+  --foreground: #f5f0e8;
+  --card: #0f1219;
+  --card-foreground: #f5f0e8;
+  --popover: #0f1219;
+  --popover-foreground: #f5f0e8;
+  --primary: #c9a84c;
+  --primary-foreground: #0a0c10;
+  --secondary: #161b26;
+  --secondary-foreground: #f5f0e8;
+  --muted: #161b26;
+  --muted-foreground: #a8a099;
+  --accent: #161b26;
+  --accent-foreground: #f5f0e8;
+  --destructive: oklch(0.577 0.245 27.325);
+  --destructive-foreground: #f5f0e8;
+  --border: #1e2433;
+  --input: #1e2433;
+  --ring: #c9a84c;
+}
+
+@layer base {
+  * {
+    border-color: var(--color-border);
+  }
+  html {
+    scroll-behavior: smooth;
+  }
+  body {
+    background-color: var(--bg-primary);
+    color: var(--text-primary);
+    font-family: var(--font-body);
+    -webkit-font-smoothing: antialiased;
+  }
+  h1,
+  h2,
+  h3 {
+    font-family: var(--font-display);
+    font-weight: 500;
+    letter-spacing: -0.01em;
+  }
+  ::selection {
+    background: var(--gold);
+    color: var(--bg-primary);
+  }
+
+  /* Custom scrollbar */
+  ::-webkit-scrollbar {
+    width: 10px;
+    height: 10px;
+  }
+  ::-webkit-scrollbar-track {
+    background: var(--bg-primary);
+  }
+  ::-webkit-scrollbar-thumb {
+    background: var(--gold-muted);
+    border-radius: 4px;
+  }
+  ::-webkit-scrollbar-thumb:hover {
+    background: var(--gold);
+  }
+}
+
+@layer utilities {
+  .font-display {
+    font-family: var(--font-display);
+  }
+  .font-body {
+    font-family: var(--font-body);
+  }
+  .font-accent {
+    font-family: var(--font-accent);
+    letter-spacing: 0.18em;
+  }
+
+  .grain {
+    position: relative;
+  }
+  .grain::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    opacity: 0.04;
+    mix-blend-mode: overlay;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='3'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  }
+
+  .gold-divider {
+    height: 1px;
+    background: linear-gradient(90deg, transparent, var(--violet), transparent);
+  }
+
+  .glass-card {
+    background: rgba(255, 255, 255, 0.02);
+    border: 1px solid rgba(201, 168, 76, 0.15);
+    backdrop-filter: blur(12px);
+    transition: all 0.5s cubic-bezier(0.25, 0.1, 0.25, 1);
+  }
+  .glass-card:hover {
+    border-color: rgba(201, 168, 76, 0.5);
+    transform: translateY(-8px);
+    box-shadow: 0 20px 60px -20px rgba(201, 168, 76, 0.25);
+  }
+
+  .text-shimmer {
+    background: linear-gradient(
+      90deg,
+      var(--gold-muted) 0%,
+      var(--violet) 25%,
+      var(--gold-light) 50%,
+      var(--violet) 75%,
+      var(--gold-muted) 100%
+    );
+    background-size: 200% auto;
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    animation: shimmer-text 5s linear infinite;
+  }
+
+  .aurora-orb {
+    position: absolute;
+    border-radius: 9999px;
+    filter: blur(80px);
+    pointer-events: none;
+    will-change: transform, opacity;
+  }
+
+  .magnetic-card {
+    position: relative;
+    transition: transform 0.5s cubic-bezier(0.25, 0.1, 0.25, 1);
+  }
+  .magnetic-card::before {
+    content: "";
+    position: absolute;
+    inset: -1px;
+    border-radius: inherit;
+    padding: 1px;
+    background: conic-gradient(
+      from var(--angle, 0deg),
+      transparent 60%,
+      var(--violet) 80%,
+      var(--gold-light) 90%,
+      transparent 100%
+    );
+    -webkit-mask:
+      linear-gradient(#000 0 0) content-box,
+      linear-gradient(#000 0 0);
+    -webkit-mask-composite: xor;
+    mask-composite: exclude;
+    opacity: 0;
+    transition: opacity 0.5s ease;
+    animation: spin-conic 6s linear infinite;
+  }
+  .magnetic-card:hover::before {
+    opacity: 1;
+  }
+  @keyframes spin-conic {
+    to {
+      --angle: 360deg;
+    }
+  }
+  @property --angle {
+    syntax: "<angle>";
+    initial-value: 0deg;
+    inherits: false;
+  }
+
+  .spotlight {
+    background: radial-gradient(
+      600px circle at var(--mx, 50%) var(--my, 50%),
+      rgba(201, 168, 76, 0.08),
+      transparent 40%
+    );
+  }
+}
