@@ -1,10 +1,9 @@
 {
   "version": 2,
-  "outputDirectory": "dist/client",
   "rewrites": [
     {
       "source": "/(.*)",
-      "destination": "/index.html"
+      "destination": "/server/index.js"
     }
   ]
 }
