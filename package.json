@@ -5,7 +5,7 @@
   "type": "module",
   "scripts": {
     "dev": "vite dev",
-    "build": "vite build && node -e \"const fs = require('fs'); fs.rmSync('api', { recursive: true, force: true }); fs.cpSync('dist/server', 'api', { recursive: true }); fs.renameSync('api/server.js', 'api/index.js'); if (fs.existsSync('dist/client')) { const files = fs.readdirSync('dist/client'); for (const f of files) { fs.cpSync('dist/client/' + f, f, { recursive: true, force: true }); } }\"",
+    "build": "vite build && node -e \"const fs = require('fs'); fs.rmSync('.vercel/output', { recursive: true, force: true }); fs.mkdirSync('.vercel/output/functions/api/index.func', { recursive: true }); fs.copyFileSync('dist/server/server.js', '.vercel/output/functions/api/index.func/index.js'); if (fs.existsSync('dist/server/assets')) fs.cpSync('dist/server/assets', '.vercel/output/functions/api/index.func/assets', { recursive: true }); fs.writeFileSync('.vercel/output/functions/api/index.func/.vc-config.json', JSON.stringify({ runtime: 'nodejs20.x', handler: 'index.js', launcherType: 'Nodejs' })); fs.copySync = (src, dest) => { fs.mkdirSync(dest, { recursive: true }); for (const f of fs.readdirSync(src)) { const s = src + '/' + f; const d = dest + '/' + f; if (fs.statSync(s).isDirectory()) fs.copySync(s, d); else fs.copyFileSync(s, d); } }; if (fs.existsSync('dist/client')) fs.copySync('dist/client', '.vercel/output/static');\"",
     "build:dev": "vite build --mode development",
     "preview": "vite preview",
     "lint": "eslint .",
