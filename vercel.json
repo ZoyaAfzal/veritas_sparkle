@@ -1,11 +1,9 @@
 {
   "version": 2,
+  "cleanUrls": true,
   "rewrites": [
     {
-      "handle": "filesystem"
-    },
-    {
-      "source": "/((?!api/).*)",
+      "source": "/((?!api/|_next/|_static/|[\\w-]+\\.\\w+).*)",
       "destination": "/api/index.js"
     }
   ]
