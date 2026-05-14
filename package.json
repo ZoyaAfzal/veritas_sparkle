@@ -5,7 +5,7 @@
   "type": "module",
   "scripts": {
     "dev": "vite dev",
-    "build": "vite build && node -e \"const fs = require('fs'); fs.mkdirSync('api', { recursive: true }); fs.copyFileSync('dist/server/server.js', 'api/index.js'); if (fs.existsSync('dist/server/assets')) fs.cpSync('dist/server/assets', 'api/assets', { recursive: true });\"",
+    "build": "vite build && node -e \"const fs = require('fs'); fs.mkdirSync('api', { recursive: true }); fs.copyFileSync('dist/server/server.js', 'api/index.js'); if (fs.existsSync('dist/server/assets')) fs.cpSync('dist/server/assets', 'api/assets', { recursive: true }); if (fs.existsSync('dist/client/assets')) { fs.mkdirSync('public/assets', { recursive: true }); fs.cpSync('dist/client/assets', 'public/assets', { recursive: true }); } if (fs.existsSync('dist/client/robots.txt')) fs.copyFileSync('dist/client/robots.txt', 'public/robots.txt');\"",
     "build:dev": "vite build --mode development",
     "preview": "vite preview",
     "lint": "eslint .",
