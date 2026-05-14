@@ -1,9 +1,22 @@
 {
   "version": 2,
+  "functions": {
+    "server/server.js": {
+      "runtime": "edge"
+    }
+  },
   "rewrites": [
     {
+      "source": "/assets/(.*)",
+      "destination": "/client/assets/$1"
+    },
+    {
+      "source": "/robots.txt",
+      "destination": "/client/robots.txt"
+    },
+    {
       "source": "/(.*)",
-      "destination": "/server/index.js"
+      "destination": "/server/server.js"
     }
   ]
 }
