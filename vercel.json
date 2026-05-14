@@ -1,9 +1,18 @@
 {
   "version": 2,
-  "rewrites": [
+  "functions": {
+    "api/index.js": {
+      "runtime": "nodejs20.x",
+      "includeFiles": "api/assets/**"
+    }
+  },
+  "routes": [
     {
-      "source": "/((?!assets/|robots\\.txt|favicon\\.ico).*)",
-      "destination": "/api/index.js"
+      "handle": "filesystem"
+    },
+    {
+      "src": "/(.*)",
+      "dest": "/api/index.js"
     }
   ]
 }
