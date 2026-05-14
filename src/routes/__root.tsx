@@ -4,11 +4,8 @@ import {
   Link,
   createRootRouteWithContext,
   useRouter,
-  HeadContent,
-  Scripts,
 } from "@tanstack/react-router";
 
-import appCss from "../styles.css?url";
 import { Navbar } from "@/components/layout/Navbar";
 import { Footer } from "@/components/layout/Footer";
 
@@ -70,46 +67,10 @@ function ErrorComponent({ error, reset }: { error: Error; reset: () => void }) {
 }
 
 export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()({
-  head: () => ({
-    meta: [
-      { charSet: "utf-8" },
-      { name: "viewport", content: "width=device-width, initial-scale=1" },
-      { title: "Veritas Law — Where Truth Meets Justice" },
-      {
-        name: "description",
-        content:
-          "Veritas Law — premium legal counsel since 1998. Corporate, criminal, family, immigration & litigation.",
-      },
-      { property: "og:title", content: "Veritas Law — Where Truth Meets Justice" },
-      {
-        property: "og:description",
-        content: "Strategic legal counsel backed by 25+ years of experience and 1,200+ cases won.",
-      },
-      { property: "og:type", content: "website" },
-      { property: "og:site_name", content: "Veritas Law" },
-      { name: "twitter:card", content: "summary_large_image" },
-    ],
-    links: [{ rel: "stylesheet", href: appCss }],
-  }),
-  shellComponent: RootShell,
   component: RootComponent,
   notFoundComponent: NotFoundComponent,
   errorComponent: ErrorComponent,
 });
-
-function RootShell({ children }: { children: React.ReactNode }) {
-  return (
-    <html lang="en">
-      <head>
-        <HeadContent />
-      </head>
-      <body>
-        {children}
-        <Scripts />
-      </body>
-    </html>
-  );
-}
 
 function RootComponent() {
   const { queryClient } = Route.useRouteContext();
