@@ -66,6 +66,10 @@ async function normalizeCatastrophicSsrResponse(response: Response): Promise<Res
   return brandedErrorResponse();
 }
 
+export const config = {
+  runtime: "edge",
+};
+
 export default async function fetch(request: Request, env: unknown, ctx: unknown) {
   try {
     const handler = await getServerEntry();
