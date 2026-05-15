@@ -68,7 +68,7 @@ export function Footer() {
           </div>
         </div>
 
-        <div className="pt-8 flex justify-center text-xs text-text-tertiary font-accent uppercase tracking-[0.18em]">
+        <div className="pt-8 flex justify-end text-xs text-text-tertiary font-accent uppercase tracking-[0.18em]">
           <p>
             Powered by{" "}
             <a

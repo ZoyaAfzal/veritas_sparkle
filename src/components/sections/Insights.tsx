@@ -1,10 +1,12 @@
 import { motion } from "framer-motion";
 import { ArrowUpRight } from "lucide-react";
+import { Link } from "@tanstack/react-router";
 import { SectionHeader } from "../SectionHeader";
 import { stagger, fadeUp } from "@/lib/animations";
 
 const articles = [
   {
+    id: "sec-rules",
     tag: "Corporate",
     title: "What the New SEC Disclosure Rules Mean for Mid-Market Boards",
     date: "May 2026",
@@ -12,6 +14,7 @@ const articles = [
     img: "https://images.unsplash.com/photo-1450101499163-c8848c66ca85?w=800",
   },
   {
+    id: "visa-pathways",
     tag: "Immigration",
     title: "Updated Visa Pathways for Skilled Workers in 2026",
     date: "April 2026",
@@ -19,6 +22,7 @@ const articles = [
     img: "https://images.unsplash.com/photo-1521295121783-8a321d551ad2?w=800",
   },
   {
+    id: "ai-evidence",
     tag: "Litigation",
     title: "AI Evidence in Federal Court: A Practitioner's Guide",
     date: "March 2026",
@@ -67,9 +71,13 @@ export function Insights() {
                 <p className="font-accent text-[10px] uppercase tracking-[0.22em] text-text-tertiary">
                   {a.date} · {a.read}
                 </p>
-                <span className="inline-flex items-center gap-1 text-gold font-accent text-[10px] uppercase tracking-[0.22em]">
+                <Link
+                  to="/insights"
+                  hash={a.id}
+                  className="inline-flex items-center gap-1 text-gold font-accent text-[10px] uppercase tracking-[0.22em] hover:text-gold-light transition-colors"
+                >
                   Read <ArrowUpRight className="h-3 w-3" />
-                </span>
+                </Link>
               </div>
             </motion.article>
           ))}

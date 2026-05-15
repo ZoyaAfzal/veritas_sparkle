@@ -1,5 +1,6 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { PracticeAreas } from "@/components/sections/PracticeAreas";
+import { PracticeAreaDetails } from "@/components/sections/PracticeAreaDetails";
 import { CTABanner } from "@/components/sections/CTABanner";
 import { SectionHeader } from "@/components/SectionHeader";
 
@@ -40,6 +41,7 @@ function Page() {
         </div>
       </section>
       <PracticeAreas />
+      <PracticeAreaDetails />
       <CTABanner />
     </>
   );

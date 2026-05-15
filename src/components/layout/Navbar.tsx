@@ -10,6 +10,7 @@ const links = [
   { to: "/practice-areas", label: "Practice Areas" },
   { to: "/attorneys", label: "Attorneys" },
   { to: "/case-studies", label: "Case Studies" },
+  { to: "/insights", label: "Journal" },
 ] as const;
 
 export function Navbar() {

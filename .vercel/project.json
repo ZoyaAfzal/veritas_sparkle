@@ -1,0 +1,16 @@
+{
+  "projectId": "prj_cORuuVVVkHGf1z6YBqsQ8ANhJEbL",
+  "orgId": "team_FTI4XgL43C6CjB4czxsRJpY4",
+  "projectName": "veritas_sparkle",
+  "settings": {
+    "createdAt": 1778712714489,
+    "framework": null,
+    "devCommand": null,
+    "installCommand": null,
+    "buildCommand": null,
+    "outputDirectory": null,
+    "rootDirectory": null,
+    "directoryListing": false,
+    "nodeVersion": "24.x"
+  }
+}

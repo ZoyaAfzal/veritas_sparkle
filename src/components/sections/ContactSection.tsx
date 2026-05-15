@@ -30,7 +30,7 @@ export function ContactSection() {
               <Info icon={Mail} title="Email" text="hello@veritaslaw.com" />
               <Info icon={Clock} title="Hours" text="Mon – Fri, 8:00 AM – 7:00 PM ET" />
             </ul>
-            <div className="aspect-[4/3] border border-border overflow-hidden">
+            <div className="w-full h-80 border border-border overflow-hidden">
               <iframe
                 title="Map"
                 src="https://www.openstreetmap.org/export/embed.html?bbox=-74.02%2C40.71%2C-73.99%2C40.72&amp;layer=mapnik"

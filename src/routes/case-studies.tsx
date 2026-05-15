@@ -1,5 +1,6 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { CaseStudies } from "@/components/sections/CaseStudies";
+import { CaseDetails } from "@/components/sections/CaseDetails";
 import { CTABanner } from "@/components/sections/CTABanner";
 
 export const Route = createFileRoute("/case-studies")({
@@ -7,6 +8,7 @@ export const Route = createFileRoute("/case-studies")({
     <>
       <div className="pt-24" />
       <CaseStudies />
+      <CaseDetails />
       <CTABanner />
     </>
   ),

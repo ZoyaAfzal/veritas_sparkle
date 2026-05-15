@@ -11,6 +11,7 @@
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as SitemapDotxmlRouteImport } from './routes/sitemap[.]xml'
 import { Route as PracticeAreasRouteImport } from './routes/practice-areas'
+import { Route as InsightsRouteImport } from './routes/insights'
 import { Route as ContactRouteImport } from './routes/contact'
 import { Route as CaseStudiesRouteImport } from './routes/case-studies'
 import { Route as AttorneysRouteImport } from './routes/attorneys'
@@ -25,6 +26,11 @@ const SitemapDotxmlRoute = SitemapDotxmlRouteImport.update({
 const PracticeAreasRoute = PracticeAreasRouteImport.update({
   id: '/practice-areas',
   path: '/practice-areas',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const InsightsRoute = InsightsRouteImport.update({
+  id: '/insights',
+  path: '/insights',
   getParentRoute: () => rootRouteImport,
 } as any)
 const ContactRoute = ContactRouteImport.update({
@@ -59,6 +65,7 @@ export interface FileRoutesByFullPath {
   '/attorneys': typeof AttorneysRoute
   '/case-studies': typeof CaseStudiesRoute
   '/contact': typeof ContactRoute
+  '/insights': typeof InsightsRoute
   '/practice-areas': typeof PracticeAreasRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
 }
@@ -68,6 +75,7 @@ export interface FileRoutesByTo {
   '/attorneys': typeof AttorneysRoute
   '/case-studies': typeof CaseStudiesRoute
   '/contact': typeof ContactRoute
+  '/insights': typeof InsightsRoute
   '/practice-areas': typeof PracticeAreasRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
 }
@@ -78,6 +86,7 @@ export interface FileRoutesById {
   '/attorneys': typeof AttorneysRoute
   '/case-studies': typeof CaseStudiesRoute
   '/contact': typeof ContactRoute
+  '/insights': typeof InsightsRoute
   '/practice-areas': typeof PracticeAreasRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
 }
@@ -89,6 +98,7 @@ export interface FileRouteTypes {
     | '/attorneys'
     | '/case-studies'
     | '/contact'
+    | '/insights'
     | '/practice-areas'
     | '/sitemap.xml'
   fileRoutesByTo: FileRoutesByTo
@@ -98,6 +108,7 @@ export interface FileRouteTypes {
     | '/attorneys'
     | '/case-studies'
     | '/contact'
+    | '/insights'
     | '/practice-areas'
     | '/sitemap.xml'
   id:
@@ -107,6 +118,7 @@ export interface FileRouteTypes {
     | '/attorneys'
     | '/case-studies'
     | '/contact'
+    | '/insights'
     | '/practice-areas'
     | '/sitemap.xml'
   fileRoutesById: FileRoutesById
@@ -117,6 +129,7 @@ export interface RootRouteChildren {
   AttorneysRoute: typeof AttorneysRoute
   CaseStudiesRoute: typeof CaseStudiesRoute
   ContactRoute: typeof ContactRoute
+  InsightsRoute: typeof InsightsRoute
   PracticeAreasRoute: typeof PracticeAreasRoute
   SitemapDotxmlRoute: typeof SitemapDotxmlRoute
 }
@@ -135,6 +148,13 @@ declare module '@tanstack/react-router' {
       path: '/practice-areas'
       fullPath: '/practice-areas'
       preLoaderRoute: typeof PracticeAreasRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/insights': {
+      id: '/insights'
+      path: '/insights'
+      fullPath: '/insights'
+      preLoaderRoute: typeof InsightsRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/contact': {
@@ -181,6 +201,7 @@ const rootRouteChildren: RootRouteChildren = {
   AttorneysRoute: AttorneysRoute,
   CaseStudiesRoute: CaseStudiesRoute,
   ContactRoute: ContactRoute,
+  InsightsRoute: InsightsRoute,
   PracticeAreasRoute: PracticeAreasRoute,
   SitemapDotxmlRoute: SitemapDotxmlRoute,
 }
